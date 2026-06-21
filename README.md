@@ -3,8 +3,8 @@ FlowBoard - Employee Task Dashboard
 
 FlowBoard is a modern, clean task management dashboard for employees built with React, TypeScript and Tailwind CSS. Track total tasks, completed work, pending items, and manage priorities - all in one place.
 
-FlowBoard Dashboard](./public/dashboard.png)
-[Create Task Page](./public/create-task.png)
+FlowBoard Dashboard](dashboard.png)
+[Create Task Page](task.png)
 ✨ Key Features
 
 - **Dashboard Analytics**: View Total Tasks, Completed Tasks, and Pending Tasks at a glance
