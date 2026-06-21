@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Pencil, Trash2, Check, Clock, GripVertical } from 'lucide-react';
@@ -83,7 +85,7 @@ export default function TaskCard({
       onDrop={() => onDrop?.(task.id)}
       onDragEnd={onDragEnd}
       className={`
-        relative flex bg-white border border-gray-200 rounded-xl shadow-sm
+        relative flex bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm
         hover:shadow-md transition-all duration-200
         border-l-4 ${priorityBorder[priority] || 'border-l-gray-400'}
         ${isDragOver ? 'ring-2 ring-blue-500 scale-[1.02]' : ''}
@@ -92,7 +94,7 @@ export default function TaskCard({
     >
       {/* Drag Handle - Desktop Only */}
       {draggable && !isMobile && (
-        <div className="flex items-center px-2 sm:px-3 cursor-move text-gray-400 hover:text-gray-600">
+        <div className="flex items-center px-2 sm:px-3 cursor-move text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300">
           <GripVertical className="h-5 w-5" />
         </div>
       )}
@@ -100,7 +102,7 @@ export default function TaskCard({
       <div className="flex-1 p-3 sm:p-5">
         {/* Header: Title + Status */}
         <div className="flex items-start justify-between gap-2 sm:gap-3 mb-2 sm:mb-3">
-          <h3 className={`text-base sm:text-lg font-semibold text-gray-900 leading-tight ${isCompleted ? 'line-through' : ''}`}>
+          <h3 className={`text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-tight ${isCompleted ? 'line-through' : ''}`}>
             {task.title || 'Untitled Task'}
           </h3>
           <Badge variant={isCompleted ? 'completed' : 'pending'}>
@@ -112,7 +114,7 @@ export default function TaskCard({
 
         {/* Description */}
         {task.description && (
-          <p className="text-sm text-gray-600 mb-3 sm:mb-4 leading-relaxed line-clamp-2">
+          <p className="text-sm text-gray-600 dark:text-gray-300 mb-3 sm:mb-4 leading-relaxed line-clamp-2">
             {task.description}
           </p>
         )}
@@ -123,9 +125,9 @@ export default function TaskCard({
             {priority} Priority
           </Badge>
           {task.dueDate && (
-            <span className={`flex items-center gap-1 text-gray-500 ${
-              isOverdue && !isCompleted ? 'text-red-600 font-medium' : 
-              isToday && !isCompleted ? 'text-orange-600 font-medium' : ''
+            <span className={`flex items-center gap-1 text-gray-500 dark:text-gray-400 ${
+              isOverdue && !isCompleted ? 'text-red-600 dark:text-red-400 font-medium' : 
+              isToday && !isCompleted ? 'text-orange-600 dark:text-orange-400 font-medium' : ''
             }`}>
               <Clock className="h-3.5 w-3.5" />
               {isToday ? 'Due Today' : `Due ${dueLabel}`}

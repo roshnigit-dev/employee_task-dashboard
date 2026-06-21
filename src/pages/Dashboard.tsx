@@ -1,7 +1,9 @@
+
+
 import { useState } from 'react'
 import { ClipboardList, CheckCircle2, Clock, Search } from 'lucide-react'
 import { useTasks } from '../hooks/useTasks'
-import Layout from '../components/ui/Layout'
+import Layout from '../components/Layout'
 import StatCard from '../components/ui/StatCard'
 import TaskList from '../components/task/TaskList'
 
@@ -30,24 +32,24 @@ export default function Dashboard() {
             value={stats.total.toString().padStart(2, '0')}
             subtitle="All assigned tasks"
             icon={ClipboardList}
-            iconBg="bg-blue-500"
-            valueColor="text-blue-600"
+            iconBg="bg-blue-500 dark:bg-blue-600"
+            valueColor="text-blue-600 dark:text-blue-400"
           />
           <StatCard
             title="COMPLETED"
             value={stats.completed.toString().padStart(2, '0')}
             subtitle="Tasks completed"
             icon={CheckCircle2}
-            iconBg="bg-green-500"
-            valueColor="text-green-600"
+            iconBg="bg-green-500 dark:bg-green-600"
+            valueColor="text-green-600 dark:text-green-400"
           />
           <StatCard
             title="PENDING"
             value={stats.pending.toString().padStart(2, '0')}
             subtitle="Tasks pending"
             icon={Clock}
-            iconBg="bg-orange-500"
-            valueColor="text-orange-600"
+            iconBg="bg-orange-500 dark:bg-orange-600"
+            valueColor="text-orange-600 dark:text-orange-400"
           />
         </div>
 
@@ -55,13 +57,13 @@ export default function Dashboard() {
         <div className="flex flex-col gap-3">
           {/* Search Bar */}
           <div className="relative w-full">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 pointer-events-none" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-gray-400 dark:text-gray-500 pointer-events-none" />
             <input
               type="text"
               placeholder="Search by title..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm bg-white"
+              className="w-full pl-10 pr-4 py-2.5 border border-gray-300 dark:border-gray-600 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-blue-400 text-sm bg-white dark:bg-gray-700 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 transition-colors"
             />
           </div>
           
@@ -73,8 +75,8 @@ export default function Dashboard() {
                 onClick={() => setFilter(f)}
                 className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors whitespace-nowrap shrink-0 ${
                   filter === f
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-white text-gray-700 border border-gray-300 hover:bg-gray-50'
+                    ? 'bg-blue-600 dark:bg-blue-500 text-white'
+                    : 'bg-white dark:bg-gray-700 text-gray-700 dark:text-gray-300 border border-gray-300 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-600'
                 }`}
               >
                 {f === 'all' ? 'All' : f === 'high' ? 'High Priority' : f.charAt(0).toUpperCase() + f.slice(1)}

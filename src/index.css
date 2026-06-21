@@ -1,6 +1,31 @@
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --accent: #3b82f6;
+    --accent-bg: #eff6ff;
+    --accent-border: #bfdbfe;
+    --border: #e5e7eb;
+    --text-h: #111827;
+    --social-bg: #f9fafb;
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --accent: #60a5fa;
+    --accent-bg: #1e3a8a;
+    --accent-border: #1e40af;
+    --border: #374151;
+    --text-h: #f9fafb;
+    --social-bg: #1f2937;
+    --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.5);
+  }
+}
+
 @keyframes slide-in {
   from {
     transform: translateX(100%);
@@ -14,4 +39,12 @@
 
 .animate-slide-in {
   animation: slide-in 0.3s ease-out;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
